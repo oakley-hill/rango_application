@@ -13,7 +13,7 @@
 		<strong>{{ message }}</strong>
 	</div>
 	<div>
-		<a href="/rango/">index</a><br />
+		<a href="{% url 'index' %}">Index</a><br />
 		<img src="{% static 'images/rango1.jpg' %}" alt="Picture of Rango" />
 		<img src="{{ MEDIA_URL }}cat1.jpg" alt="Picture of Cat" />
 	</div>
