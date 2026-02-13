@@ -6,9 +6,9 @@ from django.urls import reverse
 from django.http import HttpResponse
 from rango.models import Category
 from rango.models import Page
-from rango.form import CategoryForm
-from rango.form import PageForm
-from rango.form import UserForm,UserProfileForm
+from rango.forms import CategoryForm
+from rango.forms import PageForm
+from rango.forms import UserForm,UserProfileForm
 
 def index(request):
     cat_list = Category.objects.order_by('-likes')[:5]

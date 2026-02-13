@@ -22,7 +22,7 @@ import re
 import inspect
 import tempfile
 import rango.models
-from rango import form
+from rango import forms
 from populate_rango import populate
 from django.db import models
 from django.test import TestCase
@@ -144,9 +144,9 @@ class Chapter9RegisterFormClassTests(TestCase):
         """
         Tests whether UserForm is in the correct place, and whether the correct fields have been specified for it.
         """
-        self.assertTrue('UserForm' in dir(form), f"{FAILURE_HEADER}We couldn't find the UserForm class in Rango's forms.py module. Did you create it in the right place?{FAILURE_FOOTER}")
+        self.assertTrue('UserForm' in dir(forms), f"{FAILURE_HEADER}We couldn't find the UserForm class in Rango's forms.py module. Did you create it in the right place?{FAILURE_FOOTER}")
         
-        user_form = form.UserForm()
+        user_form = forms.UserForm()
         self.assertEqual(type(user_form.__dict__['instance']), User, f"{FAILURE_HEADER}Your UserForm does not match up to the User model. Check your Meta definition of UserForm and try again.{FAILURE_FOOTER}")
 
         fields = user_form.fields
@@ -167,9 +167,9 @@ class Chapter9RegisterFormClassTests(TestCase):
         """
         Tests whether UserProfileForm is in the correct place, and whether the correct fields have been specified for it.
         """
-        self.assertTrue('UserProfileForm' in dir(form), f"{FAILURE_HEADER}We couldn't find the UserProfileForm class in Rango's forms.py module. Did you create it in the right place?{FAILURE_FOOTER}")
+        self.assertTrue('UserProfileForm' in dir(forms), f"{FAILURE_HEADER}We couldn't find the UserProfileForm class in Rango's forms.py module. Did you create it in the right place?{FAILURE_FOOTER}")
         
-        user_profile_form = form.UserProfileForm()
+        user_profile_form = forms.UserProfileForm()
         self.assertEqual(type(user_profile_form.__dict__['instance']), rango.models.UserProfile, f"{FAILURE_HEADER}Your UserProfileForm does not match up to the UserProfile model. Check your Meta definition of UserProfileForm and try again.{FAILURE_FOOTER}")
 
         fields = user_profile_form.fields
@@ -254,10 +254,10 @@ class Chapter9RegistrationTests(TestCase):
         Upon completion, we should be able to login with the details supplied.
         """
         user_data = {'username': 'testuser', 'password': 'test123', 'email': 'test@test.com'}
-        user_form = form.UserForm(data=user_data)
+        user_form = forms.UserForm(data=user_data)
 
         user_profile_data = {'website': 'http://www.bing.com', 'picture': tempfile.NamedTemporaryFile(suffix=".jpg").name}
-        user_profile_form = form.UserProfileForm(data=user_profile_data)
+        user_profile_form = forms.UserProfileForm(data=user_profile_data)
 
         self.assertTrue(user_form.is_valid(), f"{FAILURE_HEADER}The UserForm was not valid after entering the required data. Check your implementation of UserForm, and try again.{FAILURE_FOOTER}")
         self.assertTrue(user_profile_form.is_valid(), f"{FAILURE_HEADER}The UserProfileForm was not valid after entering the required data. Check your implementation of UserProfileForm, and try again.{FAILURE_FOOTER}")

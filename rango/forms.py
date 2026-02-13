@@ -31,7 +31,7 @@ class PageForm(forms.ModelForm):
         exclude=('category',)
 
 class UserForm(forms.ModelForm):
-    passwords = forms.CharField(widget=forms.PasswordInput())
+    password = forms.CharField(widget=forms.PasswordInput())
 
     class Meta:
         model = User
