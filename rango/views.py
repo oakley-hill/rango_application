@@ -29,6 +29,7 @@ def visitor_cookie_handler(request):
     request.session['visits'] = visits
 
 def index(request):
+<<<<<<< HEAD
     cat_list = Category.objects.order_by('-likes')[:5]
     page_list = Page.objects.order_by('-views')[:5]
 
@@ -163,3 +164,9 @@ def restricted(request):
 def user_logout(request):
     logout(request)
     return redirect(reverse('rango:index'))
+=======
+    return HttpResponse("Rango says hey there partner! <a href='/rango/about/'>About</a>")
+
+def about(request):
+    return HttpResponse("Rango says here is the about page. <a href='/rango/'>Index</a>")
+>>>>>>> ae5c1d0 (3.1)
