@@ -39,7 +39,7 @@ class Chapter7FormClassTests(TestCase):
         """
         project_path = os.getcwd()
         rango_app_path = os.path.join(project_path, 'rango')
-        forms_module_path = os.path.join(rango_app_path, 'form.py')
+        forms_module_path = os.path.join(rango_app_path, 'forms.py')
 
         self.assertTrue(os.path.exists(forms_module_path), f"{FAILURE_HEADER}We couldn't find Rango's new forms.py module. This is required to be created at the top of Section 7.2. This module should be storing your two form classes.{FAILURE_FOOTER}")
     
@@ -48,10 +48,10 @@ class Chapter7FormClassTests(TestCase):
         Does the CategoryForm implementation exist, and does it contain the correct instance variables?
         """
         # Check that we can import CategoryForm.
-        import rango.form
-        self.assertTrue('CategoryForm' in dir(rango.form), f"{FAILURE_HEADER}The class CategoryForm could not be found in Rango's forms.py module. Check you have created this class in the correct location, and try again.{FAILURE_FOOTER}")
+        import rango.forms
+        self.assertTrue('CategoryForm' in dir(rango.forms), f"{FAILURE_HEADER}The class CategoryForm could not be found in Rango's forms.py module. Check you have created this class in the correct location, and try again.{FAILURE_FOOTER}")
 
-        from rango.form import CategoryForm
+        from rango.forms import CategoryForm
         category_form = CategoryForm()
 
         # Do you correctly link Category to CategoryForm?
@@ -150,10 +150,10 @@ class Chapter7PageFormClassTests(TestCase):
         Does the PageForm implementation exist, and does it contain the correct instance variables?
         """
         # Check that we can import PageForm.
-        import rango.form
-        self.assertTrue('PageForm' in dir(rango.form), f"{FAILURE_HEADER}The class PageForm could not be found in Rango's forms.py module. Check you have created this class in the correct location, and try again.{FAILURE_FOOTER}")
+        import rango.forms
+        self.assertTrue('PageForm' in dir(rango.forms), f"{FAILURE_HEADER}The class PageForm could not be found in Rango's forms.py module. Check you have created this class in the correct location, and try again.{FAILURE_FOOTER}")
 
-        from rango.form import PageForm
+        from rango.forms import PageForm
         page_form = PageForm()
 
         # Do you correctly link Page to PageForm?
